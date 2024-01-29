@@ -4,7 +4,8 @@ const app = express()
 const mongoose = require('mongoose');
 const PORT = process.env.PORT ||3000;
 const cors = require('cors');
-const profileRouter = require("./route/profileRouter")
+const profileRouter = require("./route/profileRouter");
+const inspectionRouter = require('./route/inspectionRouter')
 
 
 //midl
@@ -15,6 +16,7 @@ app.get ("/", (req, res)=>{
     res.status(200).send("BET HOME SERVER")
 })
 app.use("/api/v1", profileRouter)
+app.use("/api/v1", inspectionRouter)
 
 
 //error route
