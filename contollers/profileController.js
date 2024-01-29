@@ -20,11 +20,13 @@ const handleRegister = async (req, res)=>{
         firstName,
         lastName,
         email,
+        role,  
         password: hashedPassword,
       })
 
       res.status(201).json({
         success: true,
+        role: user.role,
         user:{
             email: user.email,
             role: user.role,
@@ -41,7 +43,7 @@ const handleRegister = async (req, res)=>{
 
 const handleLogin = async (req, res)=>{
     // res.send("Login Profile");
-    const { email, password, role} = req.body
+    const { email, password} = req.body
 
     try {
       if(!email || !password){
@@ -66,7 +68,7 @@ const handleLogin = async (req, res)=>{
             email: user.email,
             role: user.role,
             firstName: user.firstName,
-            lastName: user.lastName
+            lastName: user.lastName,
         },
       });
     } catch (error) {

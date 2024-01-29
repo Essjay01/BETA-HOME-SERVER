@@ -23,7 +23,12 @@ const profileSchema = new Schema ({
          type: String,
          required: true,
          minLength: [7, "minimum password length is 7"],
-        
+     },
+     role: {
+       type: String,
+       default: "user",
+       required: true,
+       enum: ["admin", "user"]
      }
 
 }, {timestamps: true});

@@ -1,6 +1,8 @@
 const router = require("express").Router();
 const {getAllInspections, createInspection} = require("../contollers/inspectionController");
+const {authentication, requirePermission} = require('../middlewares/auth');
 
-router.route("/inspection").get(getAllInspections).post(createInspection);
+router.route("/inspection").get(authentication, requirePermission("admin"), getAllInspections).post(authentication, createInspection);
+
 
 module.exports = router;
