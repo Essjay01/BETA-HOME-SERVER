@@ -8,7 +8,7 @@ const profileRouter = require("./route/profileRouter");
 const inspectionRouter = require('./route/inspectionRouter')
 
 
-//midl
+//middleware
 app.use(express.json());
 app.use(cors());
 

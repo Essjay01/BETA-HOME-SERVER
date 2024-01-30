@@ -1,6 +1,6 @@
-const PROFILE = require("../models/profile")
-const bcrypt = require('bcryptjs')
-const jwt = require('jsonwebtoken')
+const PROFILE = require("../models/profile");
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
 //creat account 
 
@@ -15,7 +15,7 @@ const handleRegister = async (req, res)=>{
       } 
       const salt = await bcrypt.genSalt(10)
       const hashedPassword = await bcrypt.hash(password, salt) 
-
+  
       const user = await PROFILE.create({
         firstName,
         lastName,
