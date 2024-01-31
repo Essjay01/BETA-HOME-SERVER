@@ -51,7 +51,7 @@ const handleLogin = async (req, res)=>{
       }
       const user = await PROFILE.findOne({email})
       if(!user){
-        return res.status(401).json({err: "Accout not found"})
+        return res.status(401).json({err: "Account not found"})
       }
 
       const isMatch = await bcrypt.compare(password, user.password);
